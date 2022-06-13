@@ -4,6 +4,23 @@
 
 @section('content')
 
+ 
+  <form method="get" action="/rooms_filter">
+{{-- <form method="get" url="{{ URL::current() }}"> --}}
+    <div class="row p-4">
+      <div class="col-2">
+        <label for="inputDate">Check-in date</label>
+        <input type="date" name="dateCheckIn" class="form-control" required value="{{ !empty($dataCheckIn) ? $dataCheckIn : '' }}">
+      </div>
+      <div class="col-2">
+        <label for="inputDate">Check-out date</label>
+        <input type="date" name="dateCheckOut" class="form-control" required value="{{ !empty($dataCheckOut) ? $dataCheckOut : '' }}">
+      </div>
+      <button class="col-1 btn btn-primary">Search</button>
+    </div>
+  </form>
+ 
+
 <div class="rooms">
   @if (count($rooms) > 0)
 <table class="table table-hover table-striped">

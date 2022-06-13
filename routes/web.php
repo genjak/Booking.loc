@@ -18,11 +18,17 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/rooms', [RoomController::class, 'all'])->name('rooms');
+//Route::get('/rooms?dateCheckIn={dateIn}&dateCheckOut={dateOut}', [RoomController::class, 'filter']);
 
-//Route::get('/rooms/room/')->name('room');
+Route::get('/rooms_filter', [RoomController::class, 'filter']);
+
+Route::get('/rooms/all', [RoomController::class, 'all']);
 
 Route::get('/rooms/room/{id}', [RoomController::class, 'one'])->where(['id' => '[0-9]{1,5}'])->name('room');
+//Route::get('/rooms/room/{id}', 'App\Http\Controllers\RoomController@one')->where(['id' => '[0-9]{1,5}'])->name('room');
+
+Route::get('/rooms', [RoomController::class, 'all'])->name('rooms');
+
 
 
 Route::group(['prefix' => 'admin'], function () {
