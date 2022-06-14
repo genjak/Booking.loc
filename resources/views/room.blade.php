@@ -37,15 +37,21 @@
     </div>
   @endif
 
+  @if(isset($info))
+  <div class="alert alert-success">
+    {{ $info }}
+  </div>
+  @endif
+
   <form class="form_room" method="post" action="/rooms/room/booking">
     @csrf
     <input type="hidden" name="idroom" value="{{ $room->id }}">
-    <input type="text" name="name" class="form-control" placeholder="Name" required value="Test name booking"><Br>
-    Check In <input type="date" name="dateCheckIn" class="form-control" required  value="2022-06-14"><br>    
-    Check Out <input type="date" name="dateCheckOut" class="form-control" required value="2022-06-17"><br>
+    <input type="text" name="name" class="form-control" placeholder="Name" required><Br>
+    Check In <input type="date" name="dateCheckIn" class="form-control" required><br>    
+    Check Out <input type="date" name="dateCheckOut" class="form-control" required><br>
     <select name="gouests" placeholder="Guests count" class="form-control" required>
       <option disabled selected>Guests count</option>
-      <option value="1" selected>1</option>
+      <option value="1">1</option>
       <option value="2">2</option>
       <option value="3">3</option>
       <option value="4">4</option>
@@ -61,8 +67,8 @@
       <option value="14">14</option>
       <option value="15">15</option>
     </select><Br>
-    <input type="tel" name="phone" class="form-control phone" placeholder="Phone" value="555-55-55"><Br>
-    <input type="email" name="email" class="form-control" placeholder="Email" required value="test@email.com"><Br>
+    <input type="tel" name="phone" class="form-control phone" required><Br>
+    <input type="email" name="email" class="form-control" placeholder="Email" required><Br>
     <button type="submit" class="btn  btn-primary">Send</button>
   </form>
 </div>

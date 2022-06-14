@@ -42,7 +42,8 @@ class RoomController extends Controller
 
     public function one($id){
       return view('room',[
-          'room' => \DB::table('rooms')->find($id)
+          'room' => \DB::table('rooms')->find($id),
+          'info' => \Session::get('info')
       ]);      
     }
 
@@ -55,8 +56,10 @@ class RoomController extends Controller
         'email' => 'required',
         'gouests' => 'required',
       ]);
+
+      $idRoom = $request->input('idroom');
       $booking =new Booking();
-      $booking->idRoom=$request->input('idroom');
+      $booking->idRoom=$idRoom;
       $booking->name=$request->input('name');
       $booking->dateCheckIn=$request->input('dateCheckIn');
       $booking->dateCheckOut=$request->input('dateCheckOut');
@@ -66,8 +69,6 @@ class RoomController extends Controller
 
       $booking->save();
 
-      return view('room',[
-          'room' => \DB::table('rooms')->find($booking->idRoom)
-      ]); 
+      return redirect()->route('room',['id' => $idRoom])->with(['info'=> 'Room Booked!!!']);
     }    
 }
