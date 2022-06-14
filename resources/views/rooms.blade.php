@@ -5,7 +5,7 @@
 @section('content')
 
  
-  <form method="get" action="/rooms_filter">
+  <form method="get" action="/rooms">
 {{-- <form method="get" url="{{ URL::current() }}"> --}}
     <div class="row p-4">
       <div class="col-2">

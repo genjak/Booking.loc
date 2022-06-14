@@ -6,7 +6,7 @@
 
 <div class="card p-3">
 
-  <a href="{{ route('rooms') }}">Rooms</a>
+  <a href="{{ route('rooms_all') }}">Rooms</a>
 
   <h1>Room № {{ $room->number }}</h1>
 
