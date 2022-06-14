@@ -51,7 +51,9 @@
 </table>
 
 <div class="text-center p-4">
-  {{ $rooms->links() }}
+   @if(!is_array($rooms)) 
+   {{ $rooms->links() }}
+   @endif
 </div>
 
   @else
