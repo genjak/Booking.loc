@@ -22,11 +22,11 @@ Route::get('/', function () {
 
 Route::get('/rooms/all', [RoomController::class, 'all'])->name('rooms_all');
 
-Route::get('/rooms', [RoomController::class, 'filter']);
+Route::get('/rooms', [RoomController::class, 'filter'])->name('rooms');
+
+Route::post('/rooms/room/booking', [RoomController::class, 'booking']);
 
 Route::get('/rooms/room/{id}', [RoomController::class, 'one'])->where(['id' => '[0-9]{1,5}'])->name('room');
-
-//Route::post('/rooms/room/{id}', [RoomController::class, 'all'])->name('rooms');
 
 Route::group(['prefix' => 'admin'], function () {
     Voyager::routes();

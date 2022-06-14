@@ -5,8 +5,7 @@
 @section('content')
 
  
-  <form method="get" action="/rooms">
-{{-- <form method="get" url="{{ URL::current() }}"> --}}
+  <form method="get" action="{{ route('rooms') }}">
     <div class="row p-4">
       <div class="col-2">
         <label for="inputDate">Check-in date</label>

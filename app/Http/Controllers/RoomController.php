@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Room;
+use App\Booking;
 
 class RoomController extends Controller
 {
@@ -44,4 +45,29 @@ class RoomController extends Controller
           'room' => \DB::table('rooms')->find($id)
       ]);      
     }
+
+    public function booking(Request $request){         
+      $valid = $request->validate([        
+        'name' => 'required',
+        'dateCheckIn' => 'required',
+        'dateCheckOut' => 'required',
+        'phone' => 'required',
+        'email' => 'required',
+        'gouests' => 'required',
+      ]);
+      $booking =new Booking();
+      $booking->idRoom=$request->input('idroom');
+      $booking->name=$request->input('name');
+      $booking->dateCheckIn=$request->input('dateCheckIn');
+      $booking->dateCheckOut=$request->input('dateCheckOut');
+      $booking->goests_count=$request->input('gouests');
+      $booking->phone=$request->input('phone');
+      $booking->email=$request->input('email');
+
+      $booking->save();
+
+      return view('room',[
+          'room' => \DB::table('rooms')->find($booking->idRoom)
+      ]); 
+    }    
 }
