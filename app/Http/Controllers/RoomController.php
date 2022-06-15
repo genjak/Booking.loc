@@ -10,7 +10,7 @@ class RoomController extends Controller
 {
     public function all(){
       return view('rooms',[
-          'rooms' => \DB::table('rooms')->SimplePaginate(15)
+          'rooms' => \DB::table('rooms')->paginate(15)
       ]);            
     }
 
