@@ -22,14 +22,14 @@ class RoomTest extends TestCase
 
     public function test_RoomsAll()
     {
-        $response = $this->get('/rooms/all');
+        $response = $this->get(route('rooms_all'));
 
         $response->assertStatus(200);
     }
 
     public function test_RoomsFilter()
     {
-        $response = $this->get('/rooms?dateCheckIn=2022-06-16&dateCheckOut=2022-06-19');
+        $response = $this->get(route('rooms').'?dateCheckIn=2022-06-16&dateCheckOut=2022-06-19');
 
         $response->assertStatus(200);
     }    
