@@ -21,7 +21,7 @@
  
 
 <div class="rooms">
-  @if (count($rooms) > 0)
+  @if (!empty($rooms))
 <table class="table table-hover table-striped">
   <tr>
     <th>Room №</th>
