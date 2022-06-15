@@ -29,7 +29,7 @@ if(document.querySelector('.phone')){
 			autoPlaceholder:"aggressive",
 			separateDialCode:true,
             preferredCountries: ['us', 'ca'],
-            utilsScript:location.origin+"/js/utils.js",// тут лучше генерацию js использовать что б путь подставить 
+            utilsScript: "http://booking.loc/js/utils.js",
         });
 		phoneInputField.addEventListener("countrychange",function(element){			
 			makeMask(element, phoneInputField);
