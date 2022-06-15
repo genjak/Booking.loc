@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use App\Models\Room;
 use App\Booking;
@@ -10,13 +11,13 @@ class RoomController extends Controller
 {
     public function all(){
       return view('rooms',[
-          'rooms' => \DB::table('rooms')->paginate(15)
+          'rooms' => DB::table('rooms')->paginate(15)
       ]);            
     }
 
     public function filter(){
-      $dataCheckIn=\Request::query()['dateCheckIn']; 
-      $dataCheckOut=\Request::query()['dateCheckOut']; 
+      $dataCheckIn = \Request::query()['dateCheckIn']; 
+      $dataCheckOut = \Request::query()['dateCheckOut']; 
       
       $results = Room::getFilterBooking($dataCheckIn, $dataCheckOut);
 
@@ -29,7 +30,7 @@ class RoomController extends Controller
 
     public function one($id){
       return view('room',[
-          'room' => \DB::table('rooms')->find($id),
+          'room' => DB::table('rooms')->find($id),
           'info' => \Session::get('info')
       ]);      
     }
