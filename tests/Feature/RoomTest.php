@@ -8,29 +8,29 @@ use Tests\TestCase;
 
 class RoomTest extends TestCase
 {
-    /**
-     * A basic feature test example.
-     *
-     * @return void
-     */
-    public function test_mainPage()
-    {
-        $response = $this->get('/');
+  /**
+   * A basic feature test example.
+   *
+   * @return void
+   */
+  public function test_mainPage()
+  {
+    $response = $this->get('/');
 
-        $response->assertStatus(200);
-    }
+    $response->assertStatus(200);
+  }
 
-    public function test_RoomsAll()
-    {
-        $response = $this->get(route('rooms_all'));
+  public function test_RoomsAll()
+  {
+    $response = $this->get(route('rooms_all'));
 
-        $response->assertStatus(200);
-    }
+    $response->assertStatus(200);
+  }
 
-    public function test_RoomsFilter()
-    {
-        $response = $this->get(route('rooms').'?dateCheckIn=2022-06-16&dateCheckOut=2022-06-19');
+  public function test_RoomsFilter()
+  {
+    $response = $this->get(route('rooms') . '?dateCheckIn=2022-06-16&dateCheckOut=2022-06-19');
 
-        $response->assertStatus(200);
-    }    
+    $response->assertStatus(200);
+  }
 }

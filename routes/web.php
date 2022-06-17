@@ -15,10 +15,8 @@ use App\Http\Controllers\RoomController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
-
-//Route::get('/rooms?dateCheckIn={dateIn}&dateCheckOut={dateOut}', [RoomController::class, 'filter']);
 
 Route::get('/rooms/all', [RoomController::class, 'all'])->name('rooms_all');
 
@@ -29,5 +27,5 @@ Route::post('/rooms/room/booking', [RoomController::class, 'booking']);
 Route::get('/rooms/room/{id}', [RoomController::class, 'one'])->where(['id' => '[0-9]{1,5}'])->name('room');
 
 Route::group(['prefix' => 'admin'], function () {
-    Voyager::routes();
+  Voyager::routes();
 });
