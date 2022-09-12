@@ -15,10 +15,10 @@ class Room extends Model
       SELECT * FROM rooms WHERE id NOT IN(
       SELECT idRoom
       from bookings b
-      WHERE 
-      ('2022-06-16' BETWEEN b.dateCheckIn AND b.dateCheckOut) or 
-      ('2022-06-17' BETWEEN b.dateCheckIn AND b.dateCheckOut) OR 
-      (b.dateCheckIn between '2022-06-16' and '2022-06-17') OR 
+      WHERE
+      ('2022-06-16' BETWEEN b.dateCheckIn AND b.dateCheckOut) or
+      ('2022-06-17' BETWEEN b.dateCheckIn AND b.dateCheckOut) OR
+      (b.dateCheckIn between '2022-06-16' and '2022-06-17') OR
       (b.dateCheckOut between '2022-06-16' and '2022-06-17') or
       (b.dateCheckIn > '2022-06-16' AND b.dateCheckOut < '2022-06-17')
       )/**/
